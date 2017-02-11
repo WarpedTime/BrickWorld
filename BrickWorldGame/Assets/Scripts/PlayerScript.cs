@@ -70,6 +70,7 @@ public class PlayerScript : MonoBehaviour {
 //		wasGrounded = grounded;
 	}
 
+<<<<<<< HEAD
 	void doThing(){
 
 		if (Input.GetButtonDown("Jump")) {
@@ -117,4 +118,12 @@ public class PlayerScript : MonoBehaviour {
 		return steer;
 	}
 
+=======
+    public void kill()
+    {
+        // triggers death from kill script
+        // method stub
+        Debug.Log("Killed player");
+    }
+>>>>>>> refs/remotes/origin/master
 }
