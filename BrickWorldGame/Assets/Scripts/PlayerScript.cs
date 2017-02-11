@@ -13,4 +13,11 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void kill()
+    {
+        // triggers death from kill script
+        // method stub
+        Debug.Log("Killed player");
+    }
 }
