@@ -268,7 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b1ffd351e62de469fb4c3e8b758044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1394699331725598, guid: 8df2aa03bfa82a34dab7794770941f10, type: 2}
+  PlayerSpawnObj: {fileID: 1110585160494848, guid: fe1a5711aa1cd514ca03087b525a4f16,
+    type: 2}
   distancefromCamera: -40
 --- !u!4 &1098301576
 Transform:

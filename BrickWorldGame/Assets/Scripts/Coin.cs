@@ -5,14 +5,14 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-    private GameManger GM;
+    private GameManagerScript GM;
     [SerializeField]
     int points;
     // Use this for initialization
     void Start()
     {
 
-        GM = GameObject.Find("Game Manager").GetComponent<GameManger>();
+        GM = GameObject.Find("Game Manager").GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
