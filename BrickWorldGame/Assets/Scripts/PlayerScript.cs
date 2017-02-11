@@ -14,10 +14,10 @@ public class PlayerScript : MonoBehaviour {
 		
 	}
 
-    internal void kill()
+    public void kill()
     {
         // triggers death from kill script
         // method stub
-        throw new System.NotImplementedException();
+        Debug.Log("Killed player");
     }
 }

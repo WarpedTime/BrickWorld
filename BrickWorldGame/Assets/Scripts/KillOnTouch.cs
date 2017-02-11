@@ -7,9 +7,10 @@ public class KillOnTouch : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collided");
         // assuming "PlayerScript"
         // check if collison is with player
-        if (collision.collider.tag == "PlayerScript")
+        if (collision.collider.tag == "Player")
         {
             // kill player
             PlayerScript p;
