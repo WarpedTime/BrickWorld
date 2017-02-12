@@ -17,6 +17,7 @@ public class ShootProjectile : MonoBehaviour {
             offset = Time.time + fireInterval;
 
             GameObject clone = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            clone.transform.parent = this.transform.parent;
             clone.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
 
             // destroy prjectile
