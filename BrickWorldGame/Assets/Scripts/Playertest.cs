@@ -26,7 +26,7 @@ public class Playertest : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.name == "Cube")
+        if(collision.transform.tag == "Platform")
         {
             jumpingbool = false;
             platformbool = true;
