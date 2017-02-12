@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+<<<<<<< HEAD
   - door
+=======
+  - Platform
+>>>>>>> refs/remotes/origin/master
   layers:
   - Default
   - TransparentFX

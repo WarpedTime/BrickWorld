@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour {
 
     private int score;
+
     [SerializeField] GameObject PlayerPrefab;
 	[SerializeField] GameObject StartRoom;
     [SerializeField] float distancefromCamera;
@@ -88,5 +89,7 @@ public class GameManagerScript : MonoBehaviour {
 	public void SpawnPlayer(){
 		player.GetComponent<simplePlayer>().Spawn();
 		spawnedPlayer = true;
+
 	}
+
 }
