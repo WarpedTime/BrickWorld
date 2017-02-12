@@ -13,9 +13,9 @@ public class KillOnTouch : MonoBehaviour {
         if (collision.collider.tag == "Player")
         {
             // kill player
-            PlayerScript p;
+            Playertest p;
 
-            p = collision.collider.GetComponent<PlayerScript>();
+			p = collision.collider.GetComponent<Playertest>();
 
             p.kill();
         }
