@@ -22,6 +22,13 @@ public class Playertest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKey (KeyCode.W)) {
+			if (overDoor) {
+				Debug.Log ("Use Door");
+				GameObject.Find ("GM").GetComponent<GameManagerScript> ().SendMessage ("enterDoor", door);
+				return;
+			}
+		}
         this.leftandrightmovement();
         this.jumping();
         this.transform.position += totalforce;
@@ -79,11 +86,6 @@ public class Playertest : MonoBehaviour
         //w jump action
         if (Input.GetKey(KeyCode.W) && jumpingbool == false)
         {
-			if (overDoor) {
-				Debug.Log ("Use Door");
-				GameObject.Find ("GM").GetComponent<GameManagerScript> ().SendMessage ("enterDoor", door);
-				return;
-			}
 
             totalforce.y += 0.3f;
             platformbool = false;
@@ -118,6 +120,14 @@ public class Playertest : MonoBehaviour
 		overDoor = false;
 		Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
 		rb.velocity = Vector3.zero;
-		transform.position = GameObject.Find("*").gameObject.transform.position;
+		rb.Sleep ();
+		Vector3 pos = GameObject.Find("*").gameObject.transform.position;
+		transform.position = pos;
 	}
+
+	public void kill(){
+		Debug.Log ("player died!");
+		Spawn ();
+	}
+
 }

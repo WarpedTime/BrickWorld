@@ -9,7 +9,7 @@ public class GameManagerScript : MonoBehaviour {
 
 
     [SerializeField] GameObject PlayerPrefab;
-	[SerializeField] GameObject StartRoom;
+	[SerializeField] GameObject RoomPrefab;
     [SerializeField] float distancefromCamera;
 
 	public GameObject currentRoom;
@@ -21,6 +21,7 @@ public class GameManagerScript : MonoBehaviour {
 	[SerializeField] GameObject d_Player;
 
 	bool spawnedPlayer = false;
+	bool spawnedRoom = false;
 
 	// Use this for initialization
 	void Start (){
@@ -32,41 +33,23 @@ public class GameManagerScript : MonoBehaviour {
         	
 			currentRoom = d_CurerntRoom;
 			player = d_Player;
-						return;
+			PlayerPrefab = player;
+			spawnedRoom = true;
+			spawnedPlayer = false;
+			return;
 		}
 
 		score = 0;
 
-		currentRoom = Instantiate (StartRoom, new Vector3 (distancefromCamera, 0, 0), Quaternion.identity);
-		Transform StartP = GameObject.Find ("Start_Point").transform;
+		currentRoom = Instantiate (RoomPrefab, new Vector3 (distancefromCamera, 0, 0), Quaternion.identity);
+		Transform StartP = GameObject.Find ("*").transform;
 		player = Instantiate (PlayerPrefab, StartP.position, Quaternion.identity);
-
 	}
 
 	void enterDoor(GameObject door){
-		if (isDebug) {
-		} else {
-		}
-
-		//destroy previous room
-		GameObject.Destroy (currentRoom);
-
-		//increase visited room count
-		roomNum++;
-
-		//get next room
-		GameObject newRoom = door.GetComponent<DoorScript> ().NextRoom;
-		Debug.Log ("Entering "+ newRoom.name);
-
-		//create new room
-		currentRoom = Instantiate (newRoom, new Vector3 (distancefromCamera, 0, 0), Quaternion.identity);
-		currentRoom.name += " [" + roomNum + "]";
-
-		//setup and spawn player
-		player.name = "player " + roomNum;
-		//player.GetComponent<simplePlayer>().Spawn();
-		spawnedPlayer=false;
-
+		spawnedRoom = false;
+		RoomPrefab = door.GetComponent<DoorScript> ().NextRoom;
+		player.SetActive (false);
 	}
 
 	// Update is called once per frame
@@ -76,15 +59,39 @@ public class GameManagerScript : MonoBehaviour {
 			SpawnPlayer();
 		}
 
-		if (!spawnedPlayer)
+		if (!spawnedRoom) {
+			//destroy previous room
+			GameObject.Destroy(currentRoom);
+
+			//increase visited room count
+			roomNum++;
+
+			//get next room
+			Debug.Log ("Entering "+ RoomPrefab.name);
+
+			//create new room
+			currentRoom = Instantiate (RoomPrefab, new Vector3 (distancefromCamera, 0, 0), Quaternion.identity);
+			currentRoom.name += " [" + roomNum + "]";
+
+			//setup and spawn player
+			spawnedPlayer=false;
+
+			spawnedRoom = true;
+		}
+
+
+		if (!spawnedPlayer && currentRoom.GetComponent<RoomScript>().roomReady) {
+			Debug.Log ("Entered Room "+roomNum);
 			SpawnPlayer ();
+		}
 
 	}
 
 	public void SpawnPlayer(){
+		player.SetActive (true);
 		player.GetComponent<Playertest>().Spawn();
+		player.name = "player " + roomNum;
 		spawnedPlayer = true;
-
 	}
 
 }
