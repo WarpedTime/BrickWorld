@@ -17,6 +17,6 @@ public class TheWall : MonoBehaviour {
     public void ButtonPressed()
     {
         Debug.Log("The Gate is Open");
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }

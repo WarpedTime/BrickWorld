@@ -10,7 +10,7 @@ public class botton : MonoBehaviour {
         if (other.tag == "Player")
         {
             TheWall wall;
-            wall = GameObject.Find("Cube").GetComponent<TheWall>();
+            wall = GameObject.Find("Wall").GetComponent<TheWall>();
             wall.ButtonPressed();
         }
     }

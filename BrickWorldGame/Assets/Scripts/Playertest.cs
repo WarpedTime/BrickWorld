@@ -101,8 +101,17 @@ public class Playertest : MonoBehaviour
 			platformbool = true;
 			totalforce.y = 0;
 			Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-			rb.velocity = new Vector3(0, 0, 0);
+			rb.velocity = new Vector3(0, 0, rb.velocity.z);
 		}
+        if(other.transform.tag == "Mover")
+        {
+            transform.parent = other.transform;
+            jumpingbool = false;
+            platformbool = true;
+            totalforce.y = 0;
+            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(0, 0, rb.velocity.z);
+        }
 	}
 
 	void OnTriggerExit(Collider other){
@@ -117,7 +126,11 @@ public class Playertest : MonoBehaviour
 			jumpingbool = true;
 			platformbool = false;
 		}
-	}
+        if (other.transform.tag == "Mover")
+        {
+            transform.parent = null;
+        }
+    }
 
 	public void Spawn(){
 		door = null;
