@@ -3,34 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootProjectile : MonoBehaviour {
-    public GameObject projectile;
+    public GameObject projectile;   // Needs to be Fireball class
 
-    public float fireRate = 1.5F;
-    public int maxProjectiles = 5;
-    public float speed = 10.0F;
-    private float nextFire = 0.0F;
-    
-	
+    public float fireInterval = 1.5F;   // seconds
+    public int destroyInterval = 10;   // seconds before object gets destroyed
+    public float speed = 100.0F;   // in force units
+    public float offset = 0.0F;   // offset from load 
+
 	// Update is called once per frame
 	void Update () {
-        if (Time.time > nextFire)
+        if (Time.time > offset)
         {
-            nextFire = Time.time + fireRate;
+            offset = Time.time + fireInterval;
 
-            // fire bullet
             GameObject clone = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
-
-            //Physics.IgnoreCollision(clone.GetComponent<Collider>(), GetComponent<Collider>());
-
-            /* foreach (Transform child in transform)
-            {
-                Physics.IgnoreCollision(clone.GetComponent<Collider>(), child.gameObject.GetComponent<Collider>());
-            }*/
-            //Physics.IgnoreCollision(clone.GetComponent<Collider>(), GetComponentInChildren<Collider>());
-
-
             clone.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-            Destroy(clone, maxProjectiles * fireRate);
+
+            // destroy prjectile
+            Destroy(clone, destroyInterval);
         }
 	}
 }
