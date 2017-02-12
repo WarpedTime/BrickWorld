@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour {
 
     private int score;
+	public int Score{ get{ return score;} set{ score = value;}}
+
 
     [SerializeField] GameObject PlayerPrefab;
 	[SerializeField] GameObject StartRoom;
     [SerializeField] float distancefromCamera;
-    private Transform StartP;
 
 	public GameObject currentRoom;
 	public GameObject player;
@@ -31,30 +32,24 @@ public class GameManagerScript : MonoBehaviour {
         	
 			currentRoom = d_CurerntRoom;
 			player = d_Player;
-
-			StartP = GameObject.Find ("Start_Point").transform;
-			return;
+						return;
 		}
-
 
 		score = 0;
 
 		currentRoom = Instantiate (StartRoom, new Vector3 (distancefromCamera, 0, 0), Quaternion.identity);
-		StartP = GameObject.Find ("Start_Point").transform;
+		Transform StartP = GameObject.Find ("Start_Point").transform;
 		player = Instantiate (PlayerPrefab, StartP.position, Quaternion.identity);
 
 	}
 
 	void enterDoor(GameObject door){
 		if (isDebug) {
-			//get rid of debug start stuff
-			GameObject.Destroy (currentRoom);
-			//d_Player.SetActive (false);
 		} else {
-			//destroy previous room
-			GameObject.Destroy (currentRoom);
-			//GameObject.Destroy (player);
 		}
+
+		//destroy previous room
+		GameObject.Destroy (currentRoom);
 
 		//increase visited room count
 		roomNum++;
@@ -76,7 +71,7 @@ public class GameManagerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.W)) {
+		if (Input.GetKey(KeyCode.Escape)) {
 			//Debug.Log ("D");
 			SpawnPlayer();
 		}
@@ -87,7 +82,7 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public void SpawnPlayer(){
-		player.GetComponent<simplePlayer>().Spawn();
+		player.GetComponent<Playertest>().Spawn();
 		spawnedPlayer = true;
 
 	}
