@@ -17,6 +17,9 @@ public class EndingFileIO : MonoBehaviour {
     private Button button;
     private int playerscorewon;
     private GameManagerScript GM;
+	[SerializeField] GameObject GM_prefab;
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -65,8 +68,20 @@ public class EndingFileIO : MonoBehaviour {
 
     public void quitevent()
     {
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		return;
+		#endif
+
         Application.Quit();
     }
+
+	public void resetGame (){
+		GameObject.Destroy(GameObject.Find("GM"));
+		GameObject gm =GameObject.Instantiate(GM_prefab,Vector3.zero, Quaternion.identity);
+		gm.name="GM";
+		GameObject.Destroy(gameObject.transform.parent.gameObject);
+	}
 
     public void makeleaderboard()
     {

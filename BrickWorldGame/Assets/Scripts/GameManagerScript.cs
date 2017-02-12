@@ -17,8 +17,10 @@ public class GameManagerScript : MonoBehaviour {
 	public int roomNum=0;
 
 	[SerializeField] bool isDebug;
+	[SerializeField] bool GODMODE;
 	[SerializeField] GameObject d_CurerntRoom;
 	[SerializeField] GameObject d_Player;
+	[SerializeField] GameObject END;
 
 	bool spawnedPlayer = false;
 	bool spawnedRoom = false;
@@ -92,6 +94,21 @@ public class GameManagerScript : MonoBehaviour {
 		player.GetComponent<Playertest>().Spawn();
 		player.name = "player " + roomNum;
 		spawnedPlayer = true;
+	}
+
+	public void PlayerHit(){
+		if (GODMODE) {
+			player.GetComponent<Playertest> ().kill ();
+		} else {
+			EndGame ();
+		}
+	}
+
+	public void EndGame(){
+		GameObject.Destroy (player);
+		GameObject.Destroy (currentRoom);
+
+		Instantiate (END, new Vector3 (0, 0, 0), Quaternion.identity);
 	}
 
 }
