@@ -17,7 +17,8 @@ public class KillOnTouch : MonoBehaviour {
 
 			p = collision.collider.GetComponent<Playertest>();
 
-            p.kill();
+            //p.kill();
+			GameObject.Find("GM").GetComponent<GameManagerScript>().PlayerHit();
         }
     }
 }
