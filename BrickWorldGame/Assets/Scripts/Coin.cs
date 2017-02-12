@@ -12,7 +12,7 @@ public class Coin : MonoBehaviour
     void Start()
     {
 
-        GM = GameObject.Find("Game Manager").GetComponent<GameManagerScript>();
+        GM = GameObject.Find("GM").GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Coin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
             GM.Score += points;
