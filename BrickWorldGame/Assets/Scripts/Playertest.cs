@@ -106,9 +106,6 @@ public class Playertest : MonoBehaviour
         }
 	}
 
- 
-
-
     void OnTriggerExit(Collider other){
 		Debug.Log ("Exit "+other.name);
 		if (other.tag == "door") {
