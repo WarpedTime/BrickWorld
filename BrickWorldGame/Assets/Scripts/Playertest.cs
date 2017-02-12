@@ -36,23 +36,12 @@ public class Playertest : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Platform")
-        {
-            jumpingbool = false;
-            platformbool = true;
-            totalforce.y = 0;
-            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, 0, 0);
-        }
+
     }
 
 	public void OnCollisionExit(Collision collision)
 	{
-		if(collision.transform.tag == "Platform")
-		{
-			jumpingbool = true;
-			platformbool = false;
-		}
+
 	}
 
     public void leftandrightmovement()
@@ -105,6 +94,15 @@ public class Playertest : MonoBehaviour
 			overDoor = true;
 			door = other.gameObject;
 		}
+
+		if(other.transform.tag == "Platform")
+		{
+			jumpingbool = false;
+			platformbool = true;
+			totalforce.y = 0;
+			Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+			rb.velocity = new Vector3(0, 0, 0);
+		}
 	}
 
 	void OnTriggerExit(Collider other){
@@ -112,6 +110,12 @@ public class Playertest : MonoBehaviour
 		if (other.tag == "door") {
 			overDoor = false;
 			door = null;
+		}
+
+		if(other.transform.tag == "Platform")
+		{
+			jumpingbool = true;
+			platformbool = false;
 		}
 	}
 
