@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomScript : MonoBehaviour {
+public class DoorScript : MonoBehaviour {
 
-	[SerializeField] public GameObject SpawnPoint;
+	[SerializeField] public GameObject NextRoom;
 
 	// Use this for initialization
 	void Start () {
+		
 	}
 	
 	// Update is called once per frame

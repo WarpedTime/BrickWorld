@@ -14,7 +14,7 @@ public class simplePlayer : MonoBehaviour {
 	[SerializeField] bool grounded;
 	[SerializeField] bool wasGrounded;
 	[SerializeField] bool overDoor = false;
-
+	public GameObject door;
 
 	void Start(){
 		//controller = GetComponent<CharacterController>();
@@ -37,7 +37,7 @@ public class simplePlayer : MonoBehaviour {
 
 			if (overDoor) {
 				Debug.Log ("Use Door");
-				rb.AddForce (new Vector3(0,moveSpeed/3,0));
+				GameObject.Find ("GM").GetComponent<GameManagerScript> ().SendMessage ("enterDoor", door);
 				return;
 			}
 			rb.AddForce (new Vector3(0,moveSpeed,0));
@@ -51,13 +51,13 @@ public class simplePlayer : MonoBehaviour {
 			rb.AddForce (new Vector3(0,-gravity,0));
 		}
 
-
 	}
 
 	void OnTriggerEnter(Collider other){
 		Debug.Log ("Enter "+ other.name);
 		if (other.tag == "door") {
 			overDoor = true;
+			door = other.gameObject;
 		}
 	}
 
@@ -65,7 +65,15 @@ public class simplePlayer : MonoBehaviour {
 		Debug.Log ("Exit "+other.name);
 		if (other.tag == "door") {
 			overDoor = false;
+			door = null;
 		}
+	}
+
+	public void Spawn(){
+		door = null;
+		overDoor = false;
+		rb.velocity = Vector3.zero;
+		transform.position = GameObject.Find("*").gameObject.transform.position;
 	}
 
 }

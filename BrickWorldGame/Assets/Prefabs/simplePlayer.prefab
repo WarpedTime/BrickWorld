@@ -11,6 +11,25 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1748477941714582}
   m_IsPrefabParent: 1
+--- !u!1 &1305084915647174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4731625738542812}
+  - component: {fileID: 20478465652060698}
+  - component: {fileID: 92062402655825296}
+  - component: {fileID: 124513785666745712}
+  - component: {fileID: 81432486304377686}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1507465328171972
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4196702899940646}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4196702899940646
 Transform:
@@ -102,6 +121,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4731625738542812}
   - {fileID: 4467319211692698}
   - {fileID: 4525218075203006}
   - {fileID: 4037523856026082}
@@ -119,7 +139,7 @@ Transform:
   m_LocalScale: {x: 0.30220747, y: 0.98044467, z: 0.69507694}
   m_Children: []
   m_Father: {fileID: 4196702899940646}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4525218075203006
 Transform:
@@ -132,8 +152,55 @@ Transform:
   m_LocalScale: {x: 0.76935506, y: 1.7831042, z: 0.76935506}
   m_Children: []
   m_Father: {fileID: 4196702899940646}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4731625738542812
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305084915647174}
+  m_LocalRotation: {x: 0.03630268, y: -0.70617425, z: 0.03630268, w: 0.7061743}
+  m_LocalPosition: {x: 26.3, y: 9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4196702899940646}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 5.886, y: -90.00001, z: 0}
+--- !u!20 &20478465652060698
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305084915647174}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!23 &23135308566113182
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -223,7 +290,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!65 &65910996523709418
 BoxCollider:
@@ -237,6 +304,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &81432486304377686
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305084915647174}
+  m_Enabled: 1
+--- !u!92 &92062402655825296
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305084915647174}
+  m_Enabled: 1
 --- !u!114 &114484026408223594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +334,15 @@ MonoBehaviour:
   gravity: 20
   grounded: 0
   wasGrounded: 0
+  overDoor: 0
+  door: {fileID: 0}
+--- !u!124 &124513785666745712
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305084915647174}
+  m_Enabled: 1
 --- !u!136 &136820428457513984
 CapsuleCollider:
   m_ObjectHideFlags: 1
