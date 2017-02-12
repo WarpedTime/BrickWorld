@@ -34,16 +34,6 @@ public class Playertest : MonoBehaviour
         this.transform.position += totalforce;
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-
-    }
-
-	public void OnCollisionExit(Collision collision)
-	{
-
-	}
-
     public void leftandrightmovement()
     {
         //D forward direction
@@ -97,14 +87,13 @@ public class Playertest : MonoBehaviour
 
 		if(other.transform.tag == "Platform")
 		{
-            if (this.transform.position.y - 1.65 > other.transform.position.y)
-            {
+            
                 jumpingbool = false;
                 platformbool = true;
                 totalforce.y = 0;
                 Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
                 rb.velocity = new Vector3(0, 0, rb.velocity.z);
-            }
+            
 		}
         if(other.transform.tag == "Mover")
         {
@@ -117,36 +106,8 @@ public class Playertest : MonoBehaviour
         }
 	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Stay " + other.name);
-        if (other.tag == "door")
-        {
-            overDoor = true;
-            door = other.gameObject;
-        }
+ 
 
-        if (other.transform.tag == "Platform")
-        {
-            if (this.transform.position.y - 1.65 > other.transform.position.y)
-            {
-                jumpingbool = false;
-                platformbool = true;
-                totalforce.y = 0;
-                Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-                rb.velocity = new Vector3(0, 0, rb.velocity.z);
-            }
-        }
-        if (other.transform.tag == "Mover")
-        {
-            transform.parent = other.transform;
-            jumpingbool = false;
-            platformbool = true;
-            totalforce.y = 0;
-            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, 0, rb.velocity.z);
-        }
-    }
 
     void OnTriggerExit(Collider other){
 		Debug.Log ("Exit "+other.name);

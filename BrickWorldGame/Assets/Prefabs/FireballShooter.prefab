@@ -175,9 +175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1755098133676536, guid: 64d2e9650557b8e4682c22ea9474aa23, type: 2}
-  fireRate: 1.5
-  maxProjectiles: 5
+  fireInterval: 1.5
+  destroyInterval: 10
   speed: 100
+  offset: 0
 --- !u!136 &136627876266372758
 CapsuleCollider:
   m_ObjectHideFlags: 1
