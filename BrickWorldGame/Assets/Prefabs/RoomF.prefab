@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 33863980851488812}
   - component: {fileID: 65404052994423666}
   - component: {fileID: 23363298635133946}
-  - component: {fileID: 95021051925103454}
+  - component: {fileID: 95098698439250054}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 33037657781947818}
   - component: {fileID: 65560628938520902}
   - component: {fileID: 23894258010730622}
-  - component: {fileID: 95902858611729824}
+  - component: {fileID: 95493353805577240}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -5205,7 +5205,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95021051925103454
+--- !u!95 &95098698439250054
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -5214,7 +5214,7 @@ Animator:
   m_GameObject: {fileID: 1488249893511630}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e09be5b58c640b14cab5cf4d34b0d08b, type: 2}
+  m_Controller: {fileID: 9100000, guid: e06ebc94222ad784da384d620e57287c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5222,7 +5222,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95902858611729824
+--- !u!95 &95493353805577240
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -5231,7 +5231,7 @@ Animator:
   m_GameObject: {fileID: 1718527663374114}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7e17a16610f6d8749a783335785ac74e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a817655f51267f48834b0614201fa23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

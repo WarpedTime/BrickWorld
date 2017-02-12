@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1110585160494848, guid: fe1a5711aa1cd514ca03087b525a4f16,
     type: 2}
-  RoomPrefab: {fileID: 1207372065758606, guid: f0eb38af873d0a548b80dee5cfb9ede8, type: 2}
+  RoomPrefab: {fileID: 1162145494026264, guid: bedb5706b7d87ce4f89bb5c4ec563374, type: 2}
   distancefromCamera: -40
   currentRoom: {fileID: 0}
   player: {fileID: 0}
